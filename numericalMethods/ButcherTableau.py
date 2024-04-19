@@ -26,10 +26,11 @@ class ButcherTableau:
         wac = np.dot(self.w, np.dot(self.A, self.c))
         wcc = sum(self.w*self.c*self.c)
         
-        order = max(1 - abs(first-1), 0) \
-              + max(1 - abs(2*second - 1), 0) \
-              + max(0.5 - abs(6*wac - 1), 0) \
-              + max(0.5 - abs(3*wcc - 1), 0)
+        o1 = max(1 - abs(first-1), 0)
+        o2 = max(1 - abs(2*second - 1), 0)
+        o3 = max(0.5 - abs(6*wac - 1), 0) + max(0.5 - abs(3*wcc - 1), 0)
+        
+        order =  o1 + np.floor(o1+sys.float_info.epsilon)*(o2 + np.floor(o2+sys.float_info.epsilon)*o3)
 
         if isinstance(orderConditions, list):
             orderConditions += [first]*(4-len(orderConditions))
