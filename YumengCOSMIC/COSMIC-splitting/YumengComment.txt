@@ -1,0 +1,12 @@
+The reason I keep
+
+    mass[0] = phiOld[0]*dx
+    for j in xrange(1,nx):
+        mass[j] = mass[j-1] +phiOld[j]*dx
+
+because I now parse 1/J[:,i])*phiOld[:,i] into the PPM function. In this
+case, the phiOld[j]*dx  is J^-1*phiOld*dx. I think this is correct, or
+maybe I should use J*phiOld*dx here?
+
+Following definition in Schar's paper, J = dz/dZ. dZ = J^-1*dz
+

@@ -1,0 +1,4 @@
+Thanks for the code, I had a quick look through it and was wondering about the sigmaHeights function. This seems to be equation (6) of Schar but was wondering if it should be equation (5) instead? Also in 
+            Psi[i,k] = -u0*(z-z1)*(.5 - pl.sin(pl.pi*(z-z1)/(z2-z1))/pl.pi)
+I was wondering about pl.pi at the end of the calculation.
+
